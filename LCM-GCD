@@ -1,0 +1,42 @@
+LCM :
+  common factors as well as uncommon factors are considered.
+  greatest power of both.
+HCF :
+  only common factors are considered.
+  smallest power of common factors
+  
+|x.y| = lcm x hcf
+
+gcd(0,0) gives division by 0 error
+lcm(0,0) = 0 is a special case
+
+Eucledians formula is more efficient to find GCD.
+  It says that subtracting the larger of two numbers from the smaller number gives you a number such that
+  the gcd of this number and smaller number is same. So you can have such repeated subtractions.
+  ex: 21 is the GCD of 252 and 105 (252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 147 = 252 − 105.
+  Psuedocode:
+  function gcd(a, b)
+    while a ≠ b 
+        if a > b
+           a := a − b; 
+        else
+           b := b − a; 
+    return a;
+  
+  but what if the difference is very large (1000,2)
+  so a modified version of the above theorem says that you can divide the number and go on finding remainders.
+  ex: a = 1071 and b = 462, 
+      1071 = 2 × 462 + 147 
+      462 = 3 × 147 + 21
+      147 = 7 × 21 + 0
+  
+  Pseudocode:
+  function gcd(a, b)
+    while b ≠ 0
+       t := b; 
+       b := a mod b; 
+       a := t; 
+    return a;
+    
+    
+      
